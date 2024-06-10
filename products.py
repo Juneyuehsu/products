@@ -1,14 +1,23 @@
 # While 比較適合用在不知道會重複幾次的迴, 比起for loop
+import os # operating system
+
 
 #讀取檔案, 用到split 
 products = []
-with open ('products.csv', 'r', encoding='utf-8') as f:
-	for line in f:
-		if 'product, price' in line:
-			continue #繼續跳到下一回, 沒有離開迴圈. (如果用break, 即離開迴圈)
-		name, price = line.strip().split (',') #先去掉換行, 用逗點當作切檔
-		products.append([name, price])
-print (products)
+if os.path.isfile('products.csv'): #檢查檔案在不在
+	print ('yes')
+	with open ('products.csv', 'r', encoding='utf-8') as f:
+		for line in f:
+			if 'product, price' in line:
+				continue #繼續跳到下一回, 沒有離開迴圈. (如果用break, 即離開迴圈)
+			name, price = line.strip().split (',') #先去掉換行, 用逗點當作切檔
+			products.append([name, price])
+	print (products)
+
+else:
+	print ('no files')
+
+
 
 #user input
 while True:
