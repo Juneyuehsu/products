@@ -13,4 +13,7 @@ while True:
 
 print (products)
 
-print (products[0][0]) #大清單的第0格裡面的第0格
+#print (products[0][0]) #大清單的第0格裡面的第0格
+
+for p in products:
+	print (p[0],'price is', p[1])
